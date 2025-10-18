@@ -1,59 +1,83 @@
-# `ros2_py_template` package
-ROS 2 python package.  [![Static Badge](https://img.shields.io/badge/ROS_2-Humble-34aec5)](https://docs.ros.org/en/humble/)
-## Packages and build
+# LAN_ITQ_kisbead
 
-It is assumed that the workspace is `~/ros2_ws/`.
+## Leírás
+Ez a ROS2 Python package (`teki_rajzolo_pkg`) a TurtleSim-ben képes kirajzolni három előre definiált alakzatot: **triangle**, **square** és **circle**.
 
-### Clone the packages
-``` r
+A node egyszerűen futtatható, és a felhasználótól bekéri, melyik alakzatot szeretné kirajzoltatni a TurtleSim teknőssel.
+
+---
+
+## Package struktúra
+```
+-LAN_ITQ_kisbead/
+-├── package.xml
+-├── setup.py
+-└── teki_rajzolo_pkg/
+-    ├── __init__.py
+-    └── draw_shape_node.py
+```
+
+- `teki_rajzolo_pkg` – Python modul(package), tartalmazza a node-ot
+- `draw_shape_node.py` – a fő node, ami kirajzolja az alakzatokat
+
+---
+
+## Telepítés és build
+1. Clone a repository:
+```bash
 cd ~/ros2_ws/src
-```
-``` r
-git clone https://github.com/sze-info/ros2_py_template
+git clone https://github.com/flmrr99/LAN_ITQ_kisbead.git
 ```
 
-### Build ROS 2 packages
-``` r
-cd ~/ros2_ws
-```
-``` r
-colcon build --packages-select ros2_py_template --symlink-install
-```
-
-<details>
-<summary> Don't forget to source before ROS commands.</summary>
-
-``` bash
-source ~/ros2_ws/install/setup.bash
-```
-</details>
-
-``` r
-ros2 launch ros2_py_template launch_example1.launch.py
+2. Build a workspace:
+```bash
+-cd ~/ros2_ws
+-colcon build --symlink-install
+-source install/setup.bash
 ```
 
-# Delete this part if you are using it as a template
+---
 
-ROS 2 pacage template, to get started, use template by clicking on the Green button labeled [`Use this template`](https://github.com/sze-info/ros2_py_template/generate) / [`Create new repository`](https://github.com/sze-info/ros2_py_template/generate). 
+## Node futtatása
 
-<p align="center"><img src="img/use_this_template01.png" width="60%" /></p>
+1. Nyiss egy terminált a TurtleSim-hez:
+```bash
+ros2 run turtlesim turtlesim_node
+```
 
+2. Nyiss egy másik terminált a `draw_shape` node futtatásához:
+```bash
+ros2 run teki_rajzolo_pkg draw_shape
+```
 
-Let's assume 
-- your Github username is `mycoolusername`
-- your ROS 2 repo shold be `cool_ros2_package`
+3. A program megkérdezi, melyik alakzatot szeretnéd kirajzolni:
+```
+triangle / square / circle
+```
 
-Replace everything in the cloned repo:
+- A TurtleSim teknős kirajzolja a kiválasztott alakzatot
 
-- `ros2_py_template` >> `cool_ros2_package` (the folder was already renamed after `Use this template`)
-- `sze-info` >> `mycoolusername`
-- find all `todo` strings and fill the blanks
+---
 
-The easiest way is VS code:
+## Példaként
+- Triangle:
+```
+-      /\
+-     /  \
+-    /____\
+```
 
-<p align="center"><img src="img/replace01.png" width="90%" /></p>
+- Square:
+```
+-  ____
+- |    |
+- |____|
+```
 
-> [!IMPORTANT]  
-> Don't forget to rename the directory (folder) and the file too.
+- Circle: folyamatos kör mozgás
 
-Now `colcon build` your ROS 2 package and you can start wokring.
+---
+
+## Fejlesztő / Kapcsolat
+- Fejlesztő: Láng Martin(ITQWMO)
+- E-mail: langmartin9999@gmail.com
