@@ -23,13 +23,13 @@ A node egyszerűen futtatható, és a felhasználótól bekéri, melyik alakzato
 ---
 
 ## Telepítés és build
-1. Clone a repository:
+1. Klónozd a repository-t:
 ```bash
 cd ~/ros2_ws/src
 git clone https://github.com/flmrr99/LAN_ITQ_kisbead.git
 ```
 
-2. Build a workspace:
+2. Buildeld a workspace-t:
 ```bash
 -cd ~/ros2_ws
 -colcon build --symlink-install
