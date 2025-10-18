@@ -31,9 +31,9 @@ git clone https://github.com/flmrr99/LAN_ITQ_kisbead.git
 
 2. Buildeld a workspace-t:
 ```bash
--cd ~/ros2_ws
--colcon build --symlink-install
--source install/setup.bash
+cd ~/ros2_ws
+colcon build --symlink-install
+source install/setup.bash
 ```
 
 ---
